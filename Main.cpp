@@ -66,9 +66,14 @@ int main(int argc, char** argv)
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(250, 250);
 	glutInitWindowPosition(100, 100);
-	glutCreateWindow("hello");
+	int win1 = glutCreateWindow("LEFT");
+	glutSetWindow(win1);
 	glutDisplayFunc(display);
-	glutCreateWindow("hello again");
+
+	glutInitWindowSize(250, 250);
+	glutInitWindowPosition(350, 100);
+	int win2 = glutCreateWindow("RIGHT");
+	glutSetWindow(win2);
 	glutDisplayFunc(displayAgain);
 	init();
 	glutMainLoop();
