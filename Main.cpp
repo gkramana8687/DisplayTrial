@@ -60,6 +60,26 @@ void init(void)
 * Register callback function to display graphics.
 * Enter main loop and process events.
 */
+
+void keyboard(unsigned char key, int x, int y)
+{
+	cout << endl << "in keyboard" << endl;
+	cout << endl << "Key value " << key << endl;
+	switch (key)
+	{
+	case GLUT_KEY_UP:
+		cout << endl << "UP" << endl;
+	case GLUT_KEY_DOWN:
+		cout << endl << "DOWN" << endl;
+		break;
+	case GLUT_KEY_LEFT:
+		cout << endl << "LEFT" << endl;
+		break;
+	case GLUT_KEY_RIGHT:
+		cout << endl << "RIGHT" << endl;
+		break;
+	}
+}
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
@@ -68,14 +88,17 @@ int main(int argc, char** argv)
 	glutInitWindowPosition(100, 100);
 	int win1 = glutCreateWindow("LEFT");
 	glutSetWindow(win1);
+	init();
 	glutDisplayFunc(display);
+	glutKeyboardFunc(keyboard);
 
-	glutInitWindowSize(250, 250);
+
+	/*glutInitWindowSize(250, 250);
 	glutInitWindowPosition(350, 100);
 	int win2 = glutCreateWindow("RIGHT");
 	glutSetWindow(win2);
 	glutDisplayFunc(displayAgain);
-	init();
+	init();*/
 	glutMainLoop();
 	return 0; /* ISO C requires main to return int. */
 }
